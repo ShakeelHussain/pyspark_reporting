@@ -9,7 +9,7 @@ def checkstopped(df):
 
 now=datetime.now()
 five_mins_back = now-timedelta(minutes=5)
-engine = create_engine('mysql+pymysql://shakeel:KING$%^rdf!@#@vt.monarchtrack.com:3306/traccar')
+engine = create_engine('')
 spark = SparkSession.builder.appName("SimpleApp").master('local[3]').getOrCreate()
 
 current_positions = pd.read_sql_query('SELECT * FROM positions where servertime <= "'+str(now)+'" and servertime>="'+str(five_mins_back)+'"', engine)
